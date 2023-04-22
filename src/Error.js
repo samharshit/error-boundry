@@ -1,14 +1,15 @@
 import { Component } from "react";
 
-export class ErrorBoundy extends Component {
+export class ErrorBoundry extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
       hasError: false
-    };
+    }
   }
 
-  static getDerivedStateFromError() {
+  static getDerivedStateFromError(error) {
     return {
       hasError: true
     };
@@ -18,6 +19,6 @@ export class ErrorBoundy extends Component {
     if (this.state.hasError) {
       return <h3>something went wrong</h3>;
     }
-    return <h3>All ok !!!</h3>;
+    return this.props.children
   }
 }
